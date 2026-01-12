@@ -113,7 +113,7 @@ t_eval = np.linspace(t_span[0], t_span[1], 2000)  # Punkty czasowe do zapisu
 sol = solver(position=pos, velocity=vel, mass=m, charge=q , evaluation_points=t_eval)
 
 # --- WIZUALIZACJA ---
-fig = plt.figure(figsize=(10, 8))
+fig = plt.figure(figsize=(10, 10))
 ax = fig.add_subplot(111, projection='3d')
 
 # Wyciągnięcie współrzędnych z rozwiązania
