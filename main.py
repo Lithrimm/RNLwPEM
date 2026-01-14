@@ -1,3 +1,4 @@
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -71,9 +72,12 @@ def solver(position, velocity,  mass, charge , evaluation_points):
 print("|-- Konfiguracja pól --|")
 print("podaj wektor opisujący pole elektryczne E (3 wartości oddzielone spacją): ")
 E = np.array(input().split()).astype(float)
+
 print("podaj wektor opisujący pole magnetyczne B (3 wartości oddzielone spacją): ")
 B = np.array(input().split()).astype(float)
-
+while( math.sqrt(B[0]**2 + B[1]**2+ B[2]**2) > 10):
+    print("Wartość pola magnetycznego jest zbyt duża, podaj wartość mniejszą niż 10 T (długość wektora B < 10): ")
+    B = np.array(input().split()).astype(float)
 
 
 
@@ -104,9 +108,11 @@ q = float(input("Podaj wartość ładunku cząstki (c): "))  # Ładunek
 m = float(input("Podaj wartość masy cząstki (kg): "))  # Masa
 pos = np.array(input("Podaj początkową pozycję cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Pozycja początkowa
 vel = np.array(input("Podaj wektor początkowej prędkości cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Prędkość początkowa
+czas = float(input("Podaj czas symulacji (s): "))  # Czas symulacji
 
-t_span = (0, 20)  # Czas symulacji od 0 do 20 sekund
-t_eval = np.linspace(t_span[0], t_span[1], 2000)  # Punkty czasowe do zapisu
+
+t_span = (0, czas)  # Czas symulacji od 0 do czasu symulacji
+t_eval = np.linspace(t_span[0], t_span[1], 20000)  # Punkty czasowe do zapisu
 
 
 # --- ROZWIĄZANIE RÓWNANIA RUCHU ---
