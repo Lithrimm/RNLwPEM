@@ -100,10 +100,10 @@ def rownanie_ruchu(velocity, charge, mass):
 # --- PARAMETRY SYMULACJI ---
 # Jednostki umowne (dla elektronu w realnych jednostkach liczby byłyby bardzo małe)
 print("|-- Parametry cząstki --|")
-q = float(input("Podaj wartość ładunku cząstki: "))  # Ładunek
-m = float(input("Podaj wartość masy cząstki: "))  # Masa
+q = float(input("Podaj wartość ładunku cząstki (c): "))  # Ładunek
+m = float(input("Podaj wartość masy cząstki (kg): "))  # Masa
 pos = np.array(input("Podaj początkową pozycję cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Pozycja początkowa
-vel = np.array(input("Podaj początkową prędkość cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Prędkość początkowaW
+vel = np.array(input("Podaj wektor początkowej prędkości cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Prędkość początkowa
 
 t_span = (0, 20)  # Czas symulacji od 0 do 20 sekund
 t_eval = np.linspace(t_span[0], t_span[1], 2000)  # Punkty czasowe do zapisu
