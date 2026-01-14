@@ -77,7 +77,7 @@ B = np.array(input().split()).astype(float)
 
 
 
-# --- FIZYKA (SIŁA LORENTZA) ---
+# --- FIZYKA (SIŁA LORENTZA) + siła elektryczna++++ ---
 def rownanie_ruchu(velocity, charge, mass):
     """
     Funkcja definiująca układ równań różniczkowych.
