@@ -108,11 +108,13 @@ q = float(input("Podaj wartość ładunku cząstki (c): "))  # Ładunek
 m = float(input("Podaj wartość masy cząstki (kg): "))  # Masa
 pos = np.array(input("Podaj początkową pozycję cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Pozycja początkowa
 vel = np.array(input("Podaj wektor początkowej prędkości cząstki (3 wartości oddzielone spacją): ").split()).astype(float)  # Prędkość początkowa
-czas = float(input("Podaj czas symulacji (s): "))  # Czas symulacji
-
-
-t_span = (0, czas)  # Czas symulacji od 0 do czasu symulacji
-t_eval = np.linspace(t_span[0], t_span[1], 20000)  # Punkty czasowe do zapisu
+czas = int(input("Podaj czas symulacji (s): "))  # Czas symulacji
+powkowanie = int(input("Podaj częstotliwość próbkowania (ile razy w sekundzie ) (min 100): ")) #częstotliwość próbkowania
+if powkowanie < 100: #w przypadku podania za małej wartości idzemy do defaultowej wartości
+    powkowanie = 100
+    
+t_span = (0, czas)  # Czas symulacji od 0 do czasu symulacji podanego przez użytkownika
+t_eval = np.linspace(t_span[0], t_span[1], int(czas*powkowanie) ) # Punkty czasowe do zapisu | uwzględnia podany czas i częstotliwość
 
 
 # --- ROZWIĄZANIE RÓWNANIA RUCHU ---
